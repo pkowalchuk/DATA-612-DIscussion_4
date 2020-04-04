@@ -1,0 +1,55 @@
+---
+title: "Data 612 Discussion 4"
+author: "Peter Kowalchuk"
+date: "4/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#How to counter the radicalizing effects of recommender systems or ways to prevent algorithmic discrimination.
+
+##Defining radicalizing effects.
+
+Before we start looking at how to ameliorate radicalization in recommender system, some time should be taken into determining what it is in the first place. Once we established a definition of the concept, we will have a batter chance at investigating ways to reduce it.
+
+Three articles where given, The first two (Renee Diresta, Wired.com (2018): Up Next: A Better Recommendation SystemRenee Diresta, Wired.com (2018): Up Next: A Better Recommendation System and Zeynep Tufekci, The New York Times (2018): YouTube, the Great Radicalizer) give us a good insight into what is radicalization. Both articles talk about the effects, and although this gives us clues of what is is, a closer read of the articles gives us a more direct idea. 
+
+This second look at the articles basically shows us that radicalization can be redefined as bias. Bias is what makes our YouTube, Amazon and other recommendations gravitate towards a distinction destination, towards an extreme. It’s true these algorithms handle this in different ways. The articles, and a search online, would suggest YouTube (and maybe Google as a whole) are not doing a great job at avoiding this meander “into the rabbit hole”. But there is also the argument that the algorithm is doing exactly what bring the company the highest returns. If this is the case or not is not really the subject of this discussion, rather here we want to discuss how to avoid this presumably inevitable journey.
+
+If we stick to our definition of radicalization being, or at least mainly deriving from bias, then we can look at more concrete ways to eliminate it. And in reality we have already implemented some of these techniques in the class material. 
+
+Another aspect to be considered is discrimination. Here we also treat this concept as bias. The same journey that recommendations can take that make them radical, also discriminate distinct users and items which are part of the recommender system.
+
+##Some Techniques we already know
+
+If we are looking at reducing bias, two techniques we have already seen are diversity and novelty. The first allows algorithms to include many diverse groups into the recommendations, groups which might not be well represented in the user or items profile. The second produces results which are not expected. There is a relationship there with serendipity, where we would even discover results complete un-expected.
+
+A driving force in algorithm design is accuracy and performance. But these metrics can and do induce the very issue we are here discussing. Better performing algorithms will more truly reflect the radicalization and discrimination of results. Introducing diversity and novelty might degrade such performance. Measuring the benefits of diversity and novelty isn’t as generalized as the performance metric. But there is a fair amount of work in this area, even as it isn’t standardized. For example these authors (file:///Users/peterkowalchuk/Downloads/15524-68745-1-PB.pdf) present work where they aim to probe the conditions under which common algorithms produce more or less diverse or popular recommendations, and to determine if these personalized recommenders algorithms reflect a user’s preference for diversity and novelty.
+
+##Random jump
+
+In gradient decent algorithms one danger if resulting in a final solution which doesn’t represent the global minima but rather a local minima. One way of overcoming this is to do random jumps in hopes of coming out of a local minima and continue the search for the global minima. Following that idea, a recommender system could present results which are a high distances from the top list. This is a similar approach to including diversity and novelty to the results, but a complete random approach which could even be implemented at the UI level only.
+
+![https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/](gd.png)
+
+##Using a pre-trained model
+
+The third suggested article (https://goldberg.berkeley.edu/pubs/sanjay-recsys-v10.pdf) discussed a different approach to handling the issue at hand. The approach in this article is to build a model that can be used to estimate the unbiased response from users.  The idea of having a model to measure bias  is a great approach to better manage recommenders. But it does require input from the user. The users needs to be given the opportunity to produce both a raw recommendation where the general recommendations is not available, and another recommendation after the general is revealed. This isn’t common. In most recommender system the user already has knowledge of the general rating before entering a new review. 
+
+A different approach is to “applying different ranking and selection strategies after performing the predictions”, as proposed in this thesis (https://ir.library.louisville.edu/cgi/viewcontent.cgi?article=4390&context=etd). Here the idea is to enhance exploration in the algorithm by adding a feedback loop to the recommender.
+
+
+![](feedback.png)
+
+While regularization can be used to mitigate bias, the feedback loop is used to measure the bias, and could potentially be used to mitigate it as well. 
+
+#Summary
+
+In summary, although the radicalizing effects of recommenders and possible discrimination can and are important drawback to the use of these algorithms, techniques are being experimented with which the aim of reducing it. There is no easy answer or solution to the problem. Even though it might be easy to blame system authors of these systems, it must be understood that the problem isn’t easy to solve. If we try encapsulating the issue as a bias management problem, we find different techniques to handle this problem. But one must be aware that the results obtained by recommenders are by their nature prone to bias, they are a recommendations after all.
+
+
+
+
